@@ -1,0 +1,211 @@
+/* Solo dos colores: azul (títulos, encabezado y botones) y rojo (errores).
+   Lo demás es blanco, gris y negro. */
+
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f2f2f2;
+  color: #222;
+}
+
+/* Encabezado con logo y nombre del programa */
+.encabezado {
+  background: #1f4e79;
+  color: #fff;
+  padding: 8px max(24px, calc((100% - 1232px) / 2));
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.encabezado h1 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.encabezado p {
+  margin: 2px 0 0;
+  font-size: 15px;
+}
+
+.logo {
+  width: 46px;
+  height: 46px;
+}
+
+/* Tres columnas en una sola vista */
+.contenido {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr 0.85fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.seccion {
+  background: #fff;
+  border: 1px solid #bdbdbd;
+  border-radius: 6px;
+  padding: 10px 14px 6px;
+  margin-bottom: 12px;
+}
+
+.seccion h2 {
+  margin: 0 0 8px;
+  font-size: 16px;
+  color: #1f4e79;
+  border-bottom: 2px solid #1f4e79;
+  padding-bottom: 4px;
+}
+
+.fila {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.fila .campo {
+  flex: 1;
+  min-width: 0;
+}
+
+.fila .boton-fila {
+  flex: 0 0 76px;
+}
+
+.campo {
+  margin-bottom: 8px;
+}
+
+.campo label,
+.etiqueta {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+.campo input,
+.campo select {
+  width: 100%;
+  height: 34px;
+  border: 1px solid #777;
+  border-radius: 4px;
+  padding: 0 8px;
+  font-size: 15px;
+  background: #fff;
+}
+
+.campo input[readonly] {
+  background: #e9e9e9;
+}
+
+.boton {
+  width: 100%;
+  height: 34px;
+  border: none;
+  border-radius: 4px;
+  background: #1f4e79;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.boton.grande {
+  height: 44px;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+/* Botones de horario */
+.horarios {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  margin: 3px 0 6px;
+}
+
+.hora {
+  height: 32px;
+  border: 1px solid #1f4e79;
+  border-radius: 4px;
+  background: #fff;
+  color: #1f4e79;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.hora.sel {
+  background: #1f4e79;
+  color: #fff;
+}
+
+.hora:disabled {
+  background: #d9d9d9;
+  color: #777;
+  border-color: #aaa;
+  text-decoration: line-through;
+  cursor: not-allowed;
+}
+
+.nota {
+  font-size: 13px;
+  color: #555;
+  margin: 2px 0 8px;
+}
+
+.error {
+  font-size: 14px;
+  color: #b00020;
+  font-weight: bold;
+  margin: 2px 0 8px;
+}
+
+/* Mensaje de confirmación o de error debajo del botón */
+.mensaje {
+  font-size: 14px;
+  background: #fff;
+  border: 1px solid #bdbdbd;
+  border-left: 5px solid #1f4e79;
+  border-radius: 4px;
+  padding: 8px 10px;
+  margin: 0;
+}
+
+.mensaje.error {
+  border-left-color: #b00020;
+}
+
+/* Tabla de citas guardadas */
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.tabla th {
+  text-align: left;
+  border-bottom: 2px solid #1f4e79;
+  padding: 4px 4px;
+}
+
+.tabla td {
+  border-bottom: 1px solid #ddd;
+  padding: 5px 4px;
+}
+
+/* En pantallas angostas (celular) las columnas pasan una debajo de otra */
+@media (max-width: 1000px) {
+  .contenido {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
